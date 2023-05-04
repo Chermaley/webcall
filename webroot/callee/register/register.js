@@ -40,10 +40,8 @@ function makeNewId() {
 }
 
 function isAvailAction() {
-	showStatus("Anybody with a web browser can now give you a call. Here is your phone number for the web:<br><br><b>"+myCalleeID+"</b><br><br>Enter a password so only you can receive these calls.",-1);
+	showStatus("<br>Создайте id звонка.",-1);
 	// show form and clear pw input field
-	document.getElementById("pw").value = "";
-	// document.getElementById("username").value = myCalleeID;
 	form.style.display = "block";
 	setTimeout(function() {
 		console.log('formPw.focus');
@@ -146,12 +144,7 @@ function submitForm(theForm) {
 				//if(!gentle) console.log('calleeLink2='+calleeLink+" myCalleeID="+myCalleeID);
 				calleeLink += myCalleeID;
 				if(!gentle) console.log('calleeLink='+calleeLink);
-				showStatus( "Please store your ID and password in a safe place. "+
-				"We can not send you this data.<br><br>"+
-				"ID: <b>"+myCalleeID+"</b><br><br>"+
-				"Your full WebCall callee link is shown below. "+
-				"This link works in any web browser. "+
-				"Click to start:<br><br>"+
+				showStatus(
 				"<a onclick='exelink(this.href); return false;' href='"+calleeLink+"'>"+calleeLink+"</a>",-1);
 			} else {
 				console.log('response:',xhr.responseText);

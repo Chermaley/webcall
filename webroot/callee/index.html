@@ -369,10 +369,6 @@ input[type=submit]:focus {
 
 	<img id="dialpad" src="dialpad.svg" style="position:relative; float:right; width:30px; margin-top:4px; margin-left:22px; z-index:100; user-select:none; cursor:pointer; transition:opacity 500ms;" onclick="openDialId('')">
 
-	<img id="iconContacts" src="contacts.svg" style="position:relative; float:right; width:23px; margin-top:0px; margin-left:22px; z-index:100; user-select:none; cursor:pointer; transition:opacity 500ms; display:none;" onclick="openContacts()">
-
-	<img id="camera" src="camera.svg" style="position:relative; float:right; width:30px; margin-top:4px; margin-left:22px; z-index:100; user-select:none; cursor:pointer; transition:opacity 500ms;" onclick="videoSwitch(false)">
-
 	<img id="exclamation" src="exclamation.svg" style="position:relative; float:right; width:21px; margin-top:5.5px; margin-left:22px; z-index:100; user-select:none; cursor:pointer; transition:opacity 1000ms; opacity:0; display:none;" onclick="">
 
 
@@ -412,12 +408,6 @@ input[type=submit]:focus {
 	</div>
 	<div id="waitingCallersTitle" class="callListTitle" style="color:#f46; display:none;">Waiting calls:</div>
 	<div id="waitingCallers" class="callList"></div>
-
-	<div id="missedCallsTitle" class="callListTitle" style="display:none;">Missed calls:</div>
-	<div id="missedCalls" class="callList"></div>
-
-	<div id="timer" class="timer">4:32</div>
-	<div style="opacity:0.7;margin-top:15px;user-select:none;">WebCall by <a id="webcallhome" href="https://timur.mobi/webcall">timur.mobi</a></div>
 </div>
 
 <script src="custom.js"></script>

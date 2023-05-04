@@ -1061,67 +1061,10 @@ function getStream(selectObject) {
 function gotDevices(deviceInfos) {
 	// fill avSelect with the available audio/video input devices (mics and cams)
 	if(avSelect) {
-		var i, L = avSelect.options.length - 1;
-		for(i = L; i >= 0; i--) {
-			avSelect.remove(i);
-		}
-
-		let countVideoDevices = 0;
-		for(const deviceInfo of deviceInfos) {
-			if(deviceInfo.kind=="audioinput" || deviceInfo.kind=="videoinput") {
-				let deviceId = deviceInfo.deviceId;
-				if(deviceId.length>20) {
-					deviceId = deviceId.substring(0,20)+"...";
-				}
-				//gLog('gotDevices '+deviceInfo.kind+","+deviceInfo.label+","+deviceId);
-			}
-
-			const option = document.createElement('option');
-			option.value = deviceInfo.deviceId;
-
-			if(deviceInfo.kind === 'audioinput') {
-				let deviceInfoLabel = deviceInfo.label;
-				if(deviceInfoLabel=="Default") {
-					deviceInfoLabel="Audio Default";
-				} else if(deviceInfoLabel) {
-					deviceInfoLabel = "Audio "+deviceInfoLabel
-				}
-				option.text = deviceInfoLabel || `Audio ${avSelect.length + 1}`;
-			} else if (deviceInfo.kind === 'videoinput') {
-				if(!videoEnabled) {
-					continue;
-				}
-				if(countVideoDevices==0) {
-					// the 1st video device shows up, therefore we create a default video device entry before it
-					// this entry has no deviceId
-					const defaultVideoOption = document.createElement('option');
-					defaultVideoOption.text = "Video Default";
-					defaultVideoOption.value = ""; // empty deviceId
-					avSelect.appendChild(defaultVideoOption);
-				}
-				countVideoDevices++;
-
-				let deviceInfoLabel = deviceInfo.label;
-				if(deviceInfoLabel) {
-					deviceInfoLabel = "Video "+deviceInfoLabel
-				}
-				option.text = deviceInfoLabel || `Video ${avSelect.length + 1}`;
-			} else {
-				continue;
-			}
-
-			var exists=false
-			var length = avSelect.options.length;
-			for(var i = length-1; i >= 0; i--) {
-				if(avSelect.options[i].text == option.text) {
-					exists=true; // don't add again
-					break;
-				}
-			}
-			if(!exists) {
-				avSelect.appendChild(option);
-			}
-		}
+		const defaultVideoOption = document.createElement('option');
+		defaultVideoOption.text = "Video Default";
+		defaultVideoOption.value = ""; // empty deviceId
+		avSelect.appendChild(defaultVideoOption);
 	}
 }
 

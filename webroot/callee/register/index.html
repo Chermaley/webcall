@@ -23,7 +23,13 @@ body {
 }
 div#container {
 	margin: 0 auto 0 auto;
-	padding: 1em 1em 1em 1em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	width: 100%;
+	text-align: center;
 }
 div.outputSelector {
 	margin: -1.3em 0 2em 0;
@@ -100,12 +106,7 @@ input[type=submit]:focus {
 	<h1>New WebCall ID</h1>
 	<div id="status" class="status"></div>
 	<form action="javascript:;" onsubmit="submitForm(this)" style="max-width:450px;" id="password">
-		<label for="pw" style="display:inline-block; width:32px; padding-bottom:4px;">Password:</label>
-		<span onclick="showPw()" style="font-size:0.95em;float:right;margin-right:16%;margin-top:2px;opacity:0.9;user-select:none;cursor:pointer;">show</span><br>
-
-		<!-- value="" must be set to an instance-specific value (calleeID) -->
 		<input type="text" autocomplete="username" class="formtext" id="username" name="username" value="" >
-		<span onclick="clearForm()" style="margin-left:5px; user-select:none;">X</span>
 		<br>
 		<input type="submit" name="Submit" id="submit" value="OK" style="width:100px; margin-top:16px;">
 	</form>
