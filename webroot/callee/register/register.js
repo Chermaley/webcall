@@ -144,8 +144,7 @@ function submitForm(theForm) {
 				//if(!gentle) console.log('calleeLink2='+calleeLink+" myCalleeID="+myCalleeID);
 				calleeLink += myCalleeID;
 				if(!gentle) console.log('calleeLink='+calleeLink);
-				showStatus(
-				"<a onclick='exelink(this.href); return false;' href='"+calleeLink+"'>"+calleeLink+"</a>",-1);
+				window.location.href = calleeLink;
 			} else {
 				console.log('response:',xhr.responseText);
 				showStatus("Sorry, it is not possible to register your ID right now. Please try again a little later.",-1);
