@@ -357,7 +357,6 @@ input[type=submit]:focus {
 				<span id="vres" onclick="menuDialogOpen(vresDialogElement,true)">res</span>
 				<span id="vmonitor" onclick="vmonitorSwitch()" style="margin-left:3%">monitor</span>
 				<span id="vsend" onclick="connectLocalVideo(false)" style="margin-left:3%;display:none;">send</span>
-				<span id="vclose" onclick="videoSwitch(true)" style="margin-left:3%">close</span>
 			</div>
 		</div>
 	</div>
@@ -367,7 +366,6 @@ input[type=submit]:focus {
 <div id="dynDialog" style="position:relative; user-select:none; display:none;"></div>
 
 <div id="container">
-	<img id="menu" onclick="menuDialogOpen(menuDialogElement,false)" src="menu.svg" style="position:relative; float:right; width:25px; margin-top:5px; margin-left:22px; margin-right:10px; z-index:100; user-select:none; cursor:pointer;">
 
 	<img id="dialpad" src="dialpad.svg" style="position:relative; float:right; width:30px; margin-top:4px; margin-left:22px; z-index:100; user-select:none; cursor:pointer; transition:opacity 500ms;" onclick="openDialId('')">
 
@@ -427,5 +425,6 @@ input[type=submit]:focus {
 <script src="callee.js"></script>
 <script src="prefercodec.js"></script>
 <script src="adapter-latest.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

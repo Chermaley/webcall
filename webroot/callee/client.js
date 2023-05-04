@@ -33,7 +33,7 @@ const progressRcvElement = document.getElementById('progressRcv');
 const progressRcvLabel = document.getElementById('progressRcvLabel');
 const progressRcvBar = document.getElementById('fileProgressRcv');
 
-var videoEnabled = false;
+var videoEnabled = true;
 var localVideoMonitorPaused = false;
 var hashcounter=0;
 var dialing = false;
@@ -1312,30 +1312,7 @@ function vpauseByTimer() {
 }
 
 function vpause() {
-	gLog("vpause");
-	localVideoFrame.pause();
-	localVideoFrame.style.opacity = 0.4;
-	if(vmonitorButton) {
-		vmonitorButton.style.color = "#fff";
-	}
-	if(vpauseTimer) {
-		clearTimeout(vpauseTimer);
-		vpauseTimer = null;
-	}
-	if(localVideoMsgElement) {
-		localVideoMsgElement.innerHTML = "monitor paused";
-		localVideoMsgElement.style.opacity = 0.9;
-	}
 
-	if(!mediaConnect) {
-		// deactivate video + microphone pause, so that there will be no red-tab
-		localStream.getTracks().forEach(track => { track.stop(); });
-		const audioTracks = localStream.getAudioTracks();
-		localStream.removeTrack(audioTracks[0]);
-		localStream = null;
-		gLog("vpause localStream-a/v deactivated");
-	}
-	localVideoMonitorPaused = true;
 }
 
 function vmonitorSwitch() {

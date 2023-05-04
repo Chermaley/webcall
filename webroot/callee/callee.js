@@ -1822,10 +1822,6 @@ function hangup(mustDisconnect,dummy2,message) {
 
 function goOnline(sendInitFlag,comment) {
 	showStatus("");
-	if(goOnlineButton.disabled) {
-		console.log('goOnline() goOnlineButton.disabled');
-		return;
-	}
 
 	goOnlineButton.disabled = true;
 	goOfflineButton.disabled = false;

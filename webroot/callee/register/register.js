@@ -33,7 +33,7 @@ function makeNewId() {
 		} else if(xhr.responseText.length!=11) {
 			showStatus("Error: "+xhr.responseText+"<br><br><a href='..'>Back</a>",-1);
 		} else {
-			myCalleeID = xhr.responseText;
+			// myCalleeID = xhr.responseText;
 			isAvailAction();
 		}
 	}, errorAction);
@@ -43,7 +43,7 @@ function isAvailAction() {
 	showStatus("Anybody with a web browser can now give you a call. Here is your phone number for the web:<br><br><b>"+myCalleeID+"</b><br><br>Enter a password so only you can receive these calls.",-1);
 	// show form and clear pw input field
 	document.getElementById("pw").value = "";
-	document.getElementById("username").value = myCalleeID;
+	// document.getElementById("username").value = myCalleeID;
 	form.style.display = "block";
 	setTimeout(function() {
 		console.log('formPw.focus');
@@ -110,12 +110,13 @@ function showStatus(msg,timeoutMs) {
 
 function submitForm(theForm) {
 	//if(!gentle) cconsole.log("submitForm",theForm);
-	var valuePw = document.getElementById("pw").value;
-	if(!gentle) console.log('submitForm valuePw.length',valuePw.length);
-	if(valuePw.length < 6) {
-		showStatus("Password must have six or more characters",-1);
-		return;
-	}
+	// var valuePw = document.getElementById("pw").value;
+	// if(!gentle) console.log('submitForm valuePw.length',valuePw.length);
+	// if(valuePw.length < 6) {
+	// 	showStatus("Password must have six or more characters",-1);
+	// 	return;
+	// }
+	myCalleeID = document.getElementById("username").value;
 
 	form.style.display = "none";
 	showStatus("Register new ID...")
@@ -156,7 +157,7 @@ function submitForm(theForm) {
 				console.log('response:',xhr.responseText);
 				showStatus("Sorry, it is not possible to register your ID right now. Please try again a little later.",-1);
 			}
-		}, errorAction, "pw="+valuePw);
+		}, errorAction, "pw="+'valuePw');
 	},2000);
 }
 
