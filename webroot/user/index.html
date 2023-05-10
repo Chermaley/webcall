@@ -342,9 +342,9 @@ input[type=submit]:focus {
 			<span id="localVideoRes" style="position:absolute; bottom:10%; left:50%; transform:translate(-50%,-50% ); text-align:center; background:#000b; padding:5px 10px; z-index:20; font-size:0.7em; visibility:hidden;"></span>
 			<div id="localVideoLabel" style="position:absolute; bottom:0; width:100%; z-index:30; opacity:0.7; text-align:center; background:#000b; transition:opacity 500ms;">
 				<span id="vres" onclick="menuDialogOpen(vresDialogElement,true)">res</span>
-				<span id="vmonitor" onclick="vmonitorSwitch()" style="margin-left:3%">monitor</span>
+				<span id="vmonitor" onclick="vmonitorSwitch()" style="margin-left:3% display:none;">monitor</span>
 				<span id="vsend" onclick="connectLocalVideo(false)" style="margin-left:3%;display:none;">send</span>
-				<span id="vclose" onclick="videoSwitch(true)" style="margin-left:3%">close</span>
+				<span id="vclose" onclick="videoSwitch(true)" style="margin-left:3% display:none;">close</span>
 			</div>
 		</div>
 	</div>
@@ -368,7 +368,7 @@ input[type=submit]:focus {
 
 		<div style="display:grid; grid-template-columns: 1fr 1fr 40px; list-style-type:none; max-width:320px;">
 			<button id="callButton" class="callbutton">Call</button>
-			<button id="hangupButton" disabled>Hang Up</button>
+			<button id="hangupButton" disabled style="display: none">Hang Up</button>
 			<img id="onlineIndicator" src="" style="width:26px; margin:0.6em 0 0 0; user-select:none;">
 		</div>
 
