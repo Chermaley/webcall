@@ -109,7 +109,7 @@ var extMessage = function(e) {
 		}
 	}
 }
-window.addEventListener('message', extMessage, false); 
+window.addEventListener('message', extMessage, false);
 gLog("caller now listening for extMessage");
 
 window.onload = function() {
@@ -1020,7 +1020,7 @@ function videoOn() {
 	localVideoShow();
 
 	// add localStream video-track to peerCon
-	if(peerCon && peerCon.iceConnectionState!="closed" && 
+	if(peerCon && peerCon.iceConnectionState!="closed" &&
 			rtcConnect && addLocalVideoEnabled && localStream.getTracks().length>=2 && !addedVideoTrack) {
 		if(localCandidateType=="relay" || remoteCandidateType=="relay") {
 			gLog('videoOn no addTrack vid on relayed con (%s)(%s)',localCandidateType,remoteCandidateType);
@@ -1105,7 +1105,7 @@ function videoOff() {
 			gLog("videoOff !rtcConnect localStream stop len",allTracks.length);
 			allTracks.forEach(track => {
 				gLog('videoOff local track.stop()',track);
-				track.stop(); 
+				track.stop();
 			});
 		}
 
@@ -1249,7 +1249,7 @@ function calleeOnlineStatus(onlineStatus,waitForCallee) {
 		loadJS("adapter-latest.js",function() {
 			if(!navigator.mediaDevices) {
 				console.warn("navigator.mediaDevices not available");
-				// TODO no visible warning? also not in singlebutton mode? 
+				// TODO no visible warning? also not in singlebutton mode?
 			} else {
 				getStream().then(() => navigator.mediaDevices.enumerateDevices()).then(gotDevices);
 				// -> getUserMedia -> gotStream -> checkCalleeOnline -> ajax -> calleeOnlineStatus
@@ -1444,7 +1444,7 @@ function calleeOfflineAction(onlineStatus,waitForCallee) {
 
 						if(notificationSound) {
 							gLog('play notificationSound');
-							notificationSound.play().catch(function(error) { 
+							notificationSound.play().catch(function(error) {
 								console.log('# notificationSound err='+error);
 							});
 						} else {
@@ -1724,7 +1724,7 @@ function gotStream2() {
 			// disable local mic until we start dialing
 			localStream.getTracks().forEach(track => {
 				gLog('gotStream2 local mic track.stop()',track);
-				track.stop(); 
+				track.stop();
 			});
 
 			const audioTracks = localStream.getAudioTracks();
@@ -2057,7 +2057,7 @@ function signalingCommand(message) {
 			if(singlebutton) {
 				hangupButton.innerHTML = singleButtonConnectedText;
 				hangupButton.style.boxShadow = "0px 0px 10px #f00";
-				hangupButton.style.background = 'url("")'; 
+				hangupButton.style.background = 'url("")';
 				dialButton.style.backgroundColor = "";
 				hangupButton.style.backgroundColor = "";
 			} else {
@@ -2084,7 +2084,7 @@ function signalingCommand(message) {
 				audioTracks[0].enabled = true;
 			}
 			if(vsendButton) {
-				vsendButton.style.display = "inline-block";
+				vsendButton.click();
 			}
 			mediaConnectStartDate = Date.now();
 			goodbyMissedCall = "";
@@ -2772,7 +2772,7 @@ function hangup(mustDisconnectCallee,mustcheckCalleeOnline,message) {
 			// stop all localStream tracks
 			localStream.getTracks().forEach(track => {
 				gLog('hangup stop localStream track.stop()',track);
-				track.stop(); 
+				track.stop();
 			});
 
 			// remove local mic from localStream
@@ -2889,11 +2889,11 @@ function hangup(mustDisconnectCallee,mustcheckCalleeOnline,message) {
 		if(singlebutton) {
 			peerConCloseFunc();
 		} else {
-			peerCon.getStats(null).then((results) => { 
+			peerCon.getStats(null).then((results) => {
 				getStatsPostCall(results);
 				peerConCloseFunc();
 			}, err => {
-				console.log(err); 
+				console.log(err);
 				peerConCloseFunc();
 			});
 		}
