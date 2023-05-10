@@ -1330,7 +1330,6 @@ function remoteVideoShow() {
 			gLog('remoteVideoShow '+remoteVideoShowing+" "+remoteVideoDivHeight);
 			remoteVideoDiv.style.height = ""+remoteVideoDivHeight+"px";
 			remoteVideoDiv.addEventListener('transitionend', remoteVideoDivTransitioned) // when done: height auto
-			remoteVideoLabel.innerHTML = 'remote-cam <span id="remotefullscreen" onclick="remoteFullScreen(false)" style="margin-left:3%">fullscreen</span> <span onclick="closeRemoteVideo()" style="margin-left:3%">close</span>';
 			remoteVideoShowing = true;
 		}
 	});
@@ -1469,7 +1468,7 @@ function peerConOntrack(track, streams) {
 				gLog('peerCon.ontrack connectionstatechangeCounter='+connectionstatechangeCounter);
 				/*
 				if(connectionstatechangeCounter<=0) {
-					// this is a problem 
+					// this is a problem
 				}
 				*/
 				let videoTracks = remoteStream.getVideoTracks();
