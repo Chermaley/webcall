@@ -425,7 +425,7 @@ function checkServerMode(callback) {
 			return;
 		}
 	}
-	
+
 	let api = apiPath+"/mode?id="+calleeID;
 	ajaxFetch(new XMLHttpRequest(), "GET", api, function(xhr) {
 		gLog('mode='+xhr.responseText);
@@ -718,7 +718,7 @@ function login(retryFlag) {
 			remainingServiceSecs=0;
 			offlineAction();
 		}
-	}, "pw="+wsSecret);
+	}, "pw="+'valuePw');
 }
 
 function sendInit(comment) {
